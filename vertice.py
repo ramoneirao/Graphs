@@ -3,6 +3,8 @@ class Vertice():
         self.id = id
         self.input = 0
         self.output = 0 
+        self.visitado = False 
+        self.predecessor = []
     
     def setId(self, id):
         self.id = id
@@ -15,3 +17,10 @@ class Vertice():
 
     def setOutput(self, out):
         self.output = out
+
+    def setVisitado(self, valor):
+        self.visitado = valor
+
+    def getVisitado(self):
+        return self.visitado
+    

@@ -21,3 +21,6 @@ class Aresta:
 
     def setDestino(self,vertice):
         self.destino = vertice
+        
+    def __str__(self):
+        return "A(%s----%i---->%s)" % (self.origem.getId(),self.peso,self.destino.getId())
