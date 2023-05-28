@@ -77,3 +77,32 @@ class Grafo:
         for v in self.lista_Vertices:
             if not v.getVisitado():
                 self.visita(v)
+
+    def inicializa_Fonte(self, fonte):
+        for v in self.lista_Vertices:
+            v.setEstimativa(99999)
+            v.setVisitado(False)
+        fonte.setVisitado(True)
+        fonte.setEstimativa(0)
+
+    def Breadth_first_search(self, identificador):
+        fonte = self.busca_Vertice(identificador)
+        if fonte is None:
+            return "Vertce Nulo"
+        self.inicializa_Fonte(fonte)
+        lista = [fonte]
+        while 0 != len(lista):
+            u = lista[0]
+            v = self.busca_Adjacente(u)  # retorna adjacente não visitado
+            if v is None:
+                lista.pop(0)  # retiro o vertice sem adjacentes
+
+            else:
+                self.tempo += 1
+                v.setImput(self.tempo)
+                v.predecessor.append(u.getId())
+                v.setVisitado(True)
+                lista.append(v)
+
+            u.setVisitado(True)
+        

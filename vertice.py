@@ -23,4 +23,26 @@ class Vertice():
 
     def getVisitado(self):
         return self.visitado
+
+    def setEstimativa(self, estimativa):
+        self.estimativa = estimativa
+
+    def getEstimativa(self):
+        return self.estimativa
+
+    def __str__(self):
+        return (" Vertice  : %s \n Estimativa: %i \n Tempo(%i\%i): " % (
+            self.id, self.estimativa, self.input, self.output))  # imprimir o predecesso
+
+    def __lt__(self, v):
+        return self.estimativa < v.estimativa
+
+    def __eq__(self, v):
+        return self.estimativa == v.estimativa
+
+    def __eq__(self, v):
+        return self.id == v.id
+
+    def __gt__(self, v):
+        return self.estimativa > v.estimativa
     
